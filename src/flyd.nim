@@ -5,16 +5,12 @@ import macros, dom, jsffi
 when not defined(js):
   {.error: "Flyd.nim is only available for the JS target".}
 
-proc add*(x, y: int): int =
-  ## Adds two files together.
-  return x + y
-
 var document {.importc, nodecl.}: JsObject
 var console {.importc, nodecl.}: JsObject
 
 type
   Stream = JsObject
-    `end`*: bool,
+    `end`*: bool
 
 {.push importcpp.}
 # on stream instance
