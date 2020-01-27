@@ -13,27 +13,17 @@ proc map*(stream: Stream, fn: proc(v: Stream): Stream): Stream
 proc of*(value: auto): Stream
 
 # global static methods
-proc stream*(value: auto): Stream {.
-importcpp: "flyd.stream(#)".}
-proc combine*(combiner: proc(streams: varargs[auto]: auto), dependencies: auto): Stream {.
-importcpp: "flyd.stream(#)".}
-proc isStream*(stream: Stream): bool {.
-importcpp: "flyd.isStream(#)".}
-proc immediate*(stream: Stream): Stream {.
-importcpp: "flyd.immediate(#)".}
-proc endsOn*(endStream: Stream, stream: Stream): Stream {.
-importcpp: "flyd.immediate(#)".}
-proc map*(fn: proc(value: auto): auto, stream: Stream): Stream {.
-importcpp: "flyd.map(#)".}
-proc chain*(fn: proc(value: auto): Stream, stream: Stream): Stream {.
-importcpp: "flyd.chain(#)".}
-proc apply*(valueStream: Stream, functionStream: Stream): Stream {.
-importcpp: "flyd.ap(#)".}
-proc on*(fn: proc(value: auto): auto, stream: Stream): auto {.
-importcpp: "flyd.on(#)".}
-proc scan*(fn: proc(value: auto): auto, acc: auto, stream: Stream): auto {.
-importcpp: "flyd.scan(#)".}
-proc merge*(stream1: Stream, stream2: Stream): Stream {.importcpp: "flyd.merge(#)".}
-proc transduce*(transduer: proc(value: auto): auto, stream: Stream): Stream {.importcpp: "flyd.transduce(#)".}
+proc stream*(value: auto): Stream
+proc combine*(combiner: proc(streams: varargs[auto]: auto), dependencies: auto): Stream
+proc isStream*(stream: Stream): bool
+proc immediate*(stream: Stream): Stream
+proc endsOn*(endStream: Stream, stream: Stream): Stream
+proc map*(fn: proc(value: auto): auto, stream: Stream): Stream
+proc chain*(fn: proc(value: auto): Stream, stream: Stream): Stream
+proc apply*(valueStream: Stream, functionStream: Stream): Stream
+proc on*(fn: proc(value: auto): auto, stream: Stream): auto
+proc scan*(fn: proc(value: auto): auto, acc: auto, stream: Stream): auto
+proc merge*(stream1: Stream, stream2: Stream): Stream
+proc transduce*(transduer: proc(value: auto): auto, stream: Stream): Stream
 proc curryN*(number: cint, fn: proc(value: auto): auto): auto
 ```
